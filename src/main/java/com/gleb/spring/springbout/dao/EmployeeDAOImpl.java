@@ -30,7 +30,8 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     public void saveEmployee(Employee employee) {
 //        Session session = entityManager.unwrap(Session.class);
 //        session.saveOrUpdate(employee);
-        entityManager.merge(employee);
+        Employee newEmployee =  entityManager.merge(employee);
+        employee.setId(newEmployee.getId());
     }
 
     @Override
